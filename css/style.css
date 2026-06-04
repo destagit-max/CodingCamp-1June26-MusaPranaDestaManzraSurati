@@ -1,0 +1,214 @@
+/* Variabel Warna untuk Light & Dark Mode */
+:root {
+    --bg-color: #f3f4f6;
+    --text-color: #1f2937;
+    --card-bg: #ffffff;
+    --primary-color: #8b5cf6; 
+    --primary-hover: #7c3aed;
+    --border-radius: 12px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+    --card-bg: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theme-toggle-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+#themeToggleBtn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.greeting-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.greeting-card h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+
+.greeting-card #userName {
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom: 2px dashed var(--primary-hover);
+    padding: 2px 8px;
+    border-radius: 4px;
+    outline: none;
+    cursor: text;
+    transition: 0.3s;
+}
+
+
+.greeting-card #userName:focus {
+    background-color: rgba(139, 92, 246, 0.1);
+    border-bottom: 2px solid var(--primary-hover);
+}
+
+
+.greeting-card #userName:empty::before {
+    content: "[Ketik namamu di sini...]";
+    color: #9ca3af; /* Warna abu-abu */
+    font-weight: normal;
+    font-style: italic;
+    pointer-events: none;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timer-card, .todo-card {
+    text-align: center;
+}
+
+.timer-card h3, .todo-card h3, .links-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#timerDisplay {
+    font-size: 4rem;
+    color: var(--text-color);
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 0 5px;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-actions button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+.delete-btn { background-color: #ef4444; }
+.delete-btn:hover { background-color: #dc2626; }
+.edit-btn { background-color: #3b82f6; }
+.edit-btn:hover { background-color: #2563eb; }
+
+#linksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.quick-link {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.quick-link:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
